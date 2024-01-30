@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <title>{{ config('app.name', 'Laravel') }}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-black">
+            <header class="py-3 lg:px-10 px-5 bg-sobuj">
+                <div id="header-left" class=" flex justify-between">
+                    <div class="text-white font-semibold flex lg:space-x-24 space-x-4">
+                        <span class="lg:text-2xl text-xl text-red-600 font-bold mt-1">BPL <span class="text-green-600">2024</span></span>
+                        <div id="menu_bar"><i class="fa-solid fa-bars bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer"></i></div>
+                    </div>
+
+                   {{-- dropdown --}}
+                    <div class="flex lg:space-x-10 space-x-3 mt-1">
+                        <form action="">
+                            <input class="outline-none bg-black pl-3 lg:py-2 py-1.5 w-40 text-sm lg:w-[15rem] text-white rounded-md" type="text" name="serch" placeholder="search">
+                        </form>
+                        {{-- Notification --}}
+                    <div class="">
+                        <ul>
+                            <div>
+                                <button type="button" class="inline-flex w-full justify-center gap-x-1.5 text-white text-md font-semibold" id="Notification_btn" >
+                                    <i class="fa-solid fa-bell bg-black lg:p-2.5 p-2 rounded-full"></i><span class="mt-1 lg:block hidden">Notification</span>
+                                  <svg class="-mr-1 h-5 w-5 mt-2" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                  </svg>
+                                </button>
+                              </div>
+                            <ul id="Notification_item" class="text-white hidden absolute grid bg-sobuj w-40 mt-3 rounded-b-md">
+                                <a class="mx-3 mt-2 hover:bg-black p-2" href="">link 1</a>
+                                <a class="mx-3  hover:bg-black p-2" href="">link 1</a>
+                                <a class="mx-3 mb-5 hover:bg-black p-2" href="">link 1</a>
+                            </ul>
+                        </ul>
+                    </div>
+
+                    {{-- profile --}}
+                    <div>
+                        <ul>
+                            <div>
+                                <button type="button" class="inline-flex w-full justify-center mr-4 lg:mr-0 gap-x-1.5 text-white text-md font-semibold" id="profile_btn" >
+                                  <span class="mt-1">{{ Auth::user()->name }}</span>
+                                  <svg class="-mr-1 h-5 w-5 mt-2" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                  </svg>
+                                </button>
+                              </div>
+                              <ul id="profile_item" class="text-white absolute grid bg-sobuj hidden w-[6.5rem] mt-3 rounded-b-md">
+                                <a class="mx-3 mt-4 hover:bg-black p-2" href="">Profile</a>
+                                <a class="mx-3 mb-4 hover:bg-black p-2" href="">Log Out</a>
+                            </ul>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </header>
+            
+        </div>
+
+
+        <script src="{{asset('./admin.js')}}"></script>
+    </body>
+</html>
+
