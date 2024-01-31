@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class MostWicketController extends Controller
 {
-    //
+    public function mostWicket()
+   {
+    return view('admin.most_wicket');
+   }
 }

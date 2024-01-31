@@ -71,14 +71,14 @@
             <aside id="side_item" class="text-white lg:fixed lg:mt-[3.1rem] bg-sobuj lg:w-1/4 w-1/1 h-[100vh] font-semibold hidden lg:block">
                 <nav>
                     <ul class="pt-5 space-y-2">
-                        <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer {{Request::is('admin/dashboard') ? 'bg-gray-800':'';}}"><a href="{{ route('adminDashboard')}}"><i class="fa-solid fa-gauge bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>Dashboard</span></a></li>
-                        <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer {{Request::is('admin/schedule') ? 'active:bg-green-400':'';}}"><a href="#"><i class="fa-solid fa-calendar-days bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>Schedule</span></a></li>
-                        <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer {{Request::is('admin/point/table') ? 'active:bg-green-400':'';}}"><a href="#"><i class="fa-solid fa-table bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>Points Table</span></a></li>
+                        <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer {{Request::is('admin') ? 'bg-gray-800':'';}}"><a href="{{ route('admin')}}"><i class="fa-solid fa-gauge bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>Dashboard</span></a></li>
+                        <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer {{Request::is('admin/schedule') ? 'bg-gray-800':'';}}"><a href="{{route('admin.schedule')}}"><i class="fa-solid fa-calendar-days bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>Schedule</span></a></li>
+                        <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer {{Request::is('admin/point/table') ? 'bg-gray-800':'';}}"><a href="{{route('point.table')}}"><i class="fa-solid fa-table bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>Points Table</span></a></li>
                         {{-- dropdown --}}
                         <ul>
-                            <div class="hover:bg-gray-800 pl-8 py-1 cursor-pointer hover:border-l-3 {{Request::is('admin/most/runs') ? 'active:bg-green-400':'';}}">
+                            <div class="hover:bg-gray-800 pl-8 py-1 cursor-pointer hover:border-l-3 {{Request::is('admin/most/runs') ? 'bg-gray-800':'';}}">
                                 <button type="button" class="inline-flex text-white text-md font-semibold" id="dropdown_btn" >
-                                  <a class="mt-1 flex" href=""><img class="w-9 h-9 bg-black mt-1 rounded-full cursor-pointer mr-2" src="{{asset('assets/img/ccc.png')}}" alt=""><span class="mt-2 mr-2">Most Runs</span></a>
+                                  <a class="mt-1 flex" href="{{route('most.runs')}}"><img class="w-9 h-9 bg-black mt-1 rounded-full cursor-pointer mr-2" src="{{asset('assets/img/ccc.png')}}" alt=""><span class="mt-2 mr-2">Most Runs</span></a>
                                   <svg class="-mr-1 h-5 w-5 mt-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                     <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                                   </svg>
@@ -90,11 +90,11 @@
                                 <a class="mx-3 mb-5 hover:bg-black p-2" href="">link 1</a>
                             </ul> --}}
                         </ul>
-                        <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer hover:border-l-3 {{Request::is('admin/most/wicket') ? 'active:bg-green-400':'';}}"><a class="flex" href="#">
+                        <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer hover:border-l-3 {{Request::is('admin/most/wicket') ? 'bg-gray-800':'';}}"><a class="flex" href="{{route('most.wicket')}}">
                             <img class="w-9 h-9 bg-black mt-1 rounded-full cursor-pointer mr-2" src="{{asset('assets/img/cc.png')}}" alt="">
                             <span class="mt-2">Most Wickets</span></a>
                         </li>
-                        <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer hover:border-l-3 {{Request::is('admin/news') ? 'active:bg-green-400':'';}}"><a href="#"><i class="fa-solid fa-newspaper bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>News</span></a></li>
+                        <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer hover:border-l-3 {{Request::is('admin/news') ? 'bg-gray-800':'';}}"><a href="{{route('admin.news')}}"><i class="fa-solid fa-newspaper bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>News</span></a></li>
                     </ul>
                 </nav>
             </aside>

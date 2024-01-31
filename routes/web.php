@@ -2,7 +2,12 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MostRunsController;
+use App\Http\Controllers\MostWicketController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PointController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ScheduleController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,7 +25,12 @@ Route::middleware('auth','admin:admin')->group(function () {
     Route::get('/admin',[AdminController::class,'admin'])->name('admin');
 });
 
-Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('adminDashboard');
+Route::get('/admin',[AdminController::class,'dashboard'])->name('admin');
+Route::get('/admin/schedule',[ScheduleController::class,'schedule'])->name('admin.schedule');
+Route::get('/admin/point/table',[PointController::class,'pointTable'])->name('point.table');
+Route::get('/admin/most/runs',[MostRunsController::class,'mostRuns'])->name('most.runs');
+Route::get('/admin/most/wicket',[MostWicketController::class,'mostWicket'])->name('most.wicket');
+Route::get('/admin/news',[NewsController::class,'news'])->name('admin.news');
 
 // admin section end
 
