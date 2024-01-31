@@ -26,7 +26,11 @@ Route::middleware('auth','admin:admin')->group(function () {
 });
 
 Route::get('/admin',[AdminController::class,'dashboard'])->name('admin');
+
 Route::get('/admin/schedule',[ScheduleController::class,'schedule'])->name('admin.schedule');
+Route::get('/admin/schedule/create',[ScheduleController::class,'create'])->name('schedule.create');
+Route::post('/admin/schedule/create',[ScheduleController::class,'store'])->name('schedule.store');
+
 Route::get('/admin/point/table',[PointController::class,'pointTable'])->name('point.table');
 Route::get('/admin/most/runs',[MostRunsController::class,'mostRuns'])->name('most.runs');
 Route::get('/admin/most/wicket',[MostWicketController::class,'mostWicket'])->name('most.wicket');
