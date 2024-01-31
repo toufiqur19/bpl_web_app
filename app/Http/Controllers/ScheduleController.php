@@ -11,7 +11,8 @@ class ScheduleController extends Controller
 {
     public function schedule()
     {
-        return view('admin.schedule');
+        $schedules = ScheduleModel::all();
+        return view('admin.schedule',compact('schedules'));
     }
 
     public function create()
@@ -33,6 +34,7 @@ class ScheduleController extends Controller
          'image2' => 'nullable|mimes:jpeg,png,jpg,gif,svg',
         ]);
  
+        // image 1
         if($request->has('image1'))
         {
             $file = $request->file('image1');
@@ -41,6 +43,17 @@ class ScheduleController extends Controller
             $filename = time().'.'.$extension;
             $path = 'uploads/schedule/';
             $file->move($path, $filename);
+        }
+
+        // image 2
+        if($request->has('image2'))
+        {
+            $file2 = $request->file('image2');
+
+            $extension2 = $file2->getClientOriginalExtension();
+            $filename2 = time().'.'.$extension2;
+            $path2 = 'uploads/schedule/';
+            $file2->move($path2, $filename2);
         }
 
         ScheduleModel::create([
@@ -52,7 +65,7 @@ class ScheduleController extends Controller
          'date' => $request->date,
          'time' => $request->time,
          'image1' => $path.$filename,
-         'image2' => $request->image2,
+         'image2' => $path2.$filename2,
         ]);
  
         return redirect('/admin/schedule')->with('message','create post successfuly');
