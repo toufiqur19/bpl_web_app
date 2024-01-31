@@ -16,3 +16,21 @@ profile_btn.addEventListener("click",()=>
 {
     profile_item.classList.toggle('hidden');
 });
+
+// dropdown
+const menu_bar = document.getElementById('menu_bar');
+const side_item = document.getElementById('side_item');
+
+menu_bar.addEventListener("click",()=>
+{
+    side_item.classList.toggle('hidden');
+});
+
+// dropdown
+const dropdown_btn = document.getElementById('dropdown_btn');
+const dropdown_item = document.getElementById('dropdown_item');
+
+dropdown_btn.addEventListener("click",()=>
+{
+    dropdown_item.classList.toggle('hidden');
+});

@@ -5,16 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,12 +15,14 @@ Route::get('/', function () {
 
 Route::get('/',[HomeController::class,'index'])->name('home');
 
-
+// admin section start
 Route::middleware('auth','admin:admin')->group(function () {
     Route::get('/admin',[AdminController::class,'admin'])->name('admin');
 });
 
+Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('adminDashboard');
 
+// admin section end
 
 
 Route::get('/dashboard', function () {
