@@ -73,6 +73,7 @@
                     <ul class="pt-5 space-y-2">
                         <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer {{Request::is('admin') ? 'bg-gray-800':'';}}"><a href="{{ route('admin')}}"><i class="fa-solid fa-gauge bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>Dashboard</span></a></li>
                         <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer {{Request::is('admin/schedule') ? 'bg-gray-800':'';}}"><a href="{{route('admin.schedule')}}"><i class="fa-solid fa-calendar-days bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>Schedule</span></a></li>
+                        <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer {{Request::is('admin/image') ? 'bg-gray-800':'';}}"><a href="{{route('admin.image')}}"><i class="fa-solid fa-calendar-days bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>Image</span></a></li>
                         <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer {{Request::is('admin/point/table') ? 'bg-gray-800':'';}}"><a href="{{route('point.table')}}"><i class="fa-solid fa-table bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>Points Table</span></a></li>
                         {{-- dropdown --}}
                         <ul>

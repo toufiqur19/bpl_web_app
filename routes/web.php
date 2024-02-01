@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MostRunsController;
 use App\Http\Controllers\MostWicketController;
 use App\Http\Controllers\NewsController;
@@ -40,6 +41,13 @@ Route::get('/admin/most/runs',[MostRunsController::class,'mostRuns'])->name('mos
 Route::get('/admin/most/wicket',[MostWicketController::class,'mostWicket'])->name('most.wicket');
 Route::get('/admin/news',[NewsController::class,'news'])->name('admin.news');
 
+// image
+Route::get('/admin/image',[ImageController::class,'image'])->name('admin.image');
+Route::get('/admin/image/create',[ImageController::class,'create'])->name('image.create');
+Route::post('image/store',[ImageController::class,'store']);
+Route::get('imgedit/{id}',[ImageController::class,'imgedit']);
+Route::post('image/{id}/update',[ImageController::class,'update']);
+Route::get('destroy/{id}',[ImageController::class,'destroy']);
 // admin section end
 
 
