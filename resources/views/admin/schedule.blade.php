@@ -1,7 +1,7 @@
 @extends('admin.admin')
 
 
-<div class="bg-sobuj p-7 h-[100vh] w-[71%] absolute lg:left-[27%] lg:top-20 top-12">
+<div class="bg-sobuj p-7 h-[100vh] lg:w-[71%] w-[100%] absolute lg:left-[27%] lg:top-20 top-12">
     @if(session()->has('message'))
     <div class="text-white text-md">
         {{ session()->get('message') }}
@@ -18,38 +18,32 @@
     <table class="w-full text-sm text-left rtl:text-right text-white">
         <thead class="text-xs text-white uppercase bg-black">
             <tr>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="pl-3 py-3">
                     Match No
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="py-3">
                     Stadium
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    Image 1
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Image 2
-                </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="py-3">
                     Division
                 </th>
-                <th scope="col" class="px-4 py-3">
+                <th scope="col" class="py-3">
                     Team 1
                 </th>
-                <th scope="col" class="px-3 py-3">
+                <th scope="col" class="py-3">
                     Team 2
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="py-3">
                     Date
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="py-3">
                     Time
                 </th>
                
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="py-3">
                     Edit
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="py-3">
                     Delete
                 </th>
             </tr>
@@ -60,36 +54,30 @@
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{$schedule->match_no}}
                 </th>
-                <td class="px-6 py-4">
+                <td class="">
                     {{$schedule->stadium}}
                 </td>
-                <td class="px-6 py-4">
-                    <img src="{{ asset($schedule->image1) }}" alt="">
-                </td>
-                <td class="px-6 py-4">
-                    <img src="{{ asset($schedule->image2) }}" alt="">
-                </td>
-                <td class="px-6 py-4">
+                <td class="">
                     {{$schedule->division}}
                 </td>
-                <td class="px-6 py-4">
+                <td class="">
                     {{$schedule->team1}}
                 </td>
-                <td class="px-6 py-4">
+                <td class="">
                     {{$schedule->team2}}
                 </td>
-                <td class="px-6 py-4">
+                <td class="">
                     {{$schedule->date}}
                 </td>
-                <td class="px-6 py-4">
+                <td class="">
                     {{$schedule->time}}
                 </td>
                 
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                <td class="">
+                    <a href="{{url('edit/'.$schedule->id)}}" class="font-medium text-blue-600 hover:underline">Edit</a>
                 </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-red-600 hover:underline">Edit</a>
+                <td class="">
+                    <a href="{{url('delete/'.$schedule->id)}}" class="font-medium text-red-600 hover:underline">Delete</a>
                 </td>
             </tr>
             @endforeach

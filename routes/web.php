@@ -31,6 +31,10 @@ Route::get('/admin/schedule',[ScheduleController::class,'schedule'])->name('admi
 Route::get('/admin/schedule/create',[ScheduleController::class,'create'])->name('schedule.create');
 Route::post('/admin/schedule/create',[ScheduleController::class,'store'])->name('schedule.store');
 
+Route::get('/edit/{id}',[ScheduleController::class,'edit'])->name('edit');
+Route::get('/delete/{id}',[ScheduleController::class,'destroy']);
+Route::put('schedule/{id}/update',[ScheduleController::class,'update']);
+
 Route::get('/admin/point/table',[PointController::class,'pointTable'])->name('point.table');
 Route::get('/admin/most/runs',[MostRunsController::class,'mostRuns'])->name('most.runs');
 Route::get('/admin/most/wicket',[MostWicketController::class,'mostWicket'])->name('most.wicket');

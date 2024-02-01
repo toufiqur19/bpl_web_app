@@ -34,28 +34,6 @@ class ScheduleController extends Controller
          'image2' => 'nullable|mimes:jpeg,png,jpg,gif,svg',
         ]);
  
-        // image 1
-        if($request->has('image1'))
-        {
-            $file = $request->file('image1');
-
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $path = 'uploads/schedule/';
-            $file->move($path, $filename);
-        }
-
-        // image 2
-        if($request->has('image2'))
-        {
-            $file2 = $request->file('image2');
-
-            $extension2 = $file2->getClientOriginalExtension();
-            $filename2 = time().'.'.$extension2;
-            $path2 = 'uploads/schedule/';
-            $file2->move($path2, $filename2);
-        }
-
         ScheduleModel::create([
          'match_no' => $request->match_no,
          'stadium' => $request->stadium,
@@ -64,11 +42,47 @@ class ScheduleController extends Controller
          'team2' => $request->team2,
          'date' => $request->date,
          'time' => $request->time,
-         'image1' => $path.$filename,
-         'image2' => $path2.$filename2,
         ]);
  
         return redirect('/admin/schedule')->with('message','create post successfuly');
      }
 
+     public function edit($id)
+     {
+        $schedules = ScheduleModel::find($id);
+        return view('admin.edit',compact('schedules'));
+     }
+
+     public function update(Request $request, $id)
+    {
+        $request->validate([
+            'match_no' => 'required',
+            'stadium' => 'required|max:255|string',
+            'division' => 'required|max:255|string',
+            'team1' => 'required|max:255|string',
+            'team2' => 'required|max:255|string',
+            'date' => 'required|max:255|string',
+            'time' => 'required',
+           ]);
+
+        $schedules = ScheduleModel::where('id',$id)->first();
+       
+        $schedules->match_no=$request->match_no;
+        $schedules->stadium=$request->stadium;
+        $schedules->division=$request->division;
+        $schedules->team1=$request->team1;
+        $schedules->team2=$request->team2;
+        $schedules->date=$request->date;
+        $schedules->time=$request->time;
+        $schedules->save();
+ 
+        return redirect('/admin/schedule')->with('message','update successfuly');
+     }
+
+     public function destroy($id)
+     {
+        $delete = ScheduleModel::where('id',$id)->first();
+        $delete->delete();
+        return back()->with('message','delete successfuly');
+     }
 }
