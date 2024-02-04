@@ -1,3 +1,6 @@
 <x-app-layout>
-    <h1>home page</h1>
+    <div class="px-10">
+
+        <h1>home page</h1>
+    </div>
 </x-app-layout>

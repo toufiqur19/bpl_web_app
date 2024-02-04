@@ -15,7 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased bg-black">
-        <div class="min-h-screen z-20">
+        <div class="z-20">
             <header class="lg:px-10 px-5 py-1.5 bg-sobuj lg:fixed w-full">
                 <div id="header-left" class=" flex justify-between">
                     <div class="text-white font-semibold flex lg:space-x-24 space-x-4">
@@ -59,8 +59,18 @@
                                 </button>
                               </div>
                               <ul id="profile_item" class="text-white absolute grid bg-sobuj hidden w-[6.5rem] mt-3 rounded-b-md">
-                                <a class="mx-3 mt-4 hover:bg-black p-2" href="">Profile</a>
-                                <a class="mx-3 mb-4 hover:bg-black p-2" href="">Log Out</a>
+                                <x-responsive-nav-link :href="route('profile.edit')">
+                                    {{ __('Profile') }}
+                                </x-responsive-nav-link>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                
+                                    <x-responsive-nav-link :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-responsive-nav-link>
+                                </form>
                             </ul>
                         </ul>
                     </div>
@@ -73,7 +83,7 @@
                     <ul class="pt-5 space-y-2">
                         <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer {{Request::is('admin') ? 'bg-gray-800':'';}}"><a href="{{ route('admin')}}"><i class="fa-solid fa-gauge bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>Dashboard</span></a></li>
                         <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer {{Request::is('admin/schedule') ? 'bg-gray-800':'';}}"><a href="{{route('admin.schedule')}}"><i class="fa-solid fa-calendar-days bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>Schedule</span></a></li>
-                        <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer {{Request::is('admin/image') ? 'bg-gray-800':'';}}"><a href="{{route('admin.image')}}"><i class="fa-solid fa-calendar-days bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>Image</span></a></li>
+                        <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer {{Request::is('admin/image') ? 'bg-gray-800':'';}}"><a href="{{route('admin.image')}}"><i class="fa-solid fa-image bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>Image</span></a></li>
                         <li class="hover:bg-gray-800 pl-8 py-1 cursor-pointer {{Request::is('admin/point/table') ? 'bg-gray-800':'';}}"><a href="{{route('point.table')}}"><i class="fa-solid fa-table bg-black lg:p-2.5 p-2 mt-1 rounded-full cursor-pointer mr-2"></i><span>Points Table</span></a></li>
                         {{-- dropdown --}}
                         <ul>

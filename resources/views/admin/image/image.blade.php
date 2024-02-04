@@ -1,7 +1,7 @@
 @extends('admin.admin')
 
 
-<div class="bg-sobuj p-7 h-[100vh] lg:w-[71%] w-[100%] absolute lg:left-[27%] lg:top-20 top-12">
+<div class="bg-sobuj p-7 h-[100vh] lg:w-[71%] w-[100%] absolute lg:left-[27%] lg:top-20 top-12 -z-10">
     @if(session()->has('message'))
     <div class="text-white text-md">
         {{ session()->get('message') }}
@@ -39,10 +39,10 @@
         <tbody>
             @foreach ($images as $image)
             <tr class="odd:bg-sobuj even:bg-black">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <th scope="row" class="pl-4 py-4 font-medium text-white whitespace-nowrap">
                     {{$image->id}}
                 </th>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <th scope="row" class="py-4 font-medium text-white whitespace-nowrap">
                     {{$image->name}}
                 </th>
                 <td class="">
