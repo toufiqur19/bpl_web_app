@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class ScheduleModel extends Model
 {
@@ -21,4 +22,8 @@ class ScheduleModel extends Model
         'date',
         'time',
     ];
+    public function images(): HasOne
+    {
+        return $this->hasOne(Image::class, 'schedule_id', 'id');
+    }
 }

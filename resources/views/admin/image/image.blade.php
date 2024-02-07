@@ -1,7 +1,7 @@
 @extends('admin.admin')
 
 
-<div class="bg-sobuj p-7 h-[100vh] lg:w-[71%] w-[100%] absolute lg:left-[27%] lg:top-20 top-12 -z-10">
+<div class="bg-sobuj p-7 h-[100vh] lg:w-[71%] w-[100%] absolute lg:left-[27%] lg:top-20 top-12">
     @if(session()->has('message'))
     <div class="text-white text-md">
         {{ session()->get('message') }}

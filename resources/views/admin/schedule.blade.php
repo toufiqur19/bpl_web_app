@@ -1,7 +1,7 @@
 @extends('admin.admin')
 
 
-<div class="bg-sobuj p-7 h-[100vh] lg:w-[71%] w-[100%] absolute lg:left-[27%] lg:top-20 top-12 lg:-z-10">
+<div class="bg-sobuj p-7 h-[100vh] lg:w-[71%] w-[100%] absolute lg:left-[27%] lg:top-20 top-12">
     @if(session()->has('message'))
     <div class="text-white text-md">
         {{ session()->get('message') }}
@@ -23,6 +23,9 @@
                 </th>
                 <th scope="col" class="py-3">
                     Stadium
+                </th>
+                <th scope="col" class="py-3">
+                    Image
                 </th>
                 <th scope="col" class="py-3">
                     Division
@@ -56,6 +59,9 @@
                 </th>
                 <td class="">
                     {{$schedule->stadium}}
+                </td>
+                <td class="">
+                    <img src="{{asset($schedule->image1)}}" alt="" width="50" height="50">
                 </td>
                 <td class="">
                     {{$schedule->division}}

@@ -70,6 +70,7 @@
                 </div>
             </div>
 
+            <input type="file" name="image1">
             <div class="pt-3">
                 <button type="submit" name="submit" class="text-white bg-black py-2 px-3 rounded-md text-md hover:bg-green-400 duration-200 ease-in hover:text-sobuj font-semibold">Submit</button>
             </div>

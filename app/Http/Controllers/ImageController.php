@@ -23,6 +23,7 @@ class ImageController extends Controller
    {
         $request->validate([
             'name' => 'required',
+            'schedule_id' => 'required',
             'image' => 'nullable|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
@@ -38,6 +39,7 @@ class ImageController extends Controller
 
         Image::create([
          'name' => $request->name,
+         'schedule_id' => $request->schedule_id,
          'image' => $path.$filename,
         ]);
 

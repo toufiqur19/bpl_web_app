@@ -6,13 +6,17 @@
     </div>
 
     <div class="mt-10">
-        <form action="{{url('image/update')}}" method="POST" class="text-white space-y-2" enctype="multipart/form-data">
+        <form action="{{url('image/store')}}" method="POST" class="text-white space-y-2" enctype="multipart/form-data">
             @csrf
-            @method('PUT');
+
             <div class="grid space-y-6 ">
                 <div class="grid">
                     <label>Name</label>
-                    <input class="mt-2 outline-none pl-3 bg-black py-1.5 rounded-md" type="text" name="name">
+                    <input class="mt-2 outline-none bg-black py-1.5 rounded-md pl-3" type="text" name="name" value="">
+                </div>
+                <div class="grid">
+                    <label>Name</label>
+                    <input class="mt-2 outline-none bg-black py-1.5 rounded-md pl-3" type="number" name="schedule_id" value="">
                 </div>
                 <input type="file" name="image">
             </div>

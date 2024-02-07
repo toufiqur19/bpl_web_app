@@ -31,9 +31,18 @@ class ScheduleController extends Controller
          'date' => 'required|max:255|string',
          'time' => 'required',
          'image1' => 'nullable|mimes:jpeg,png,jpg,gif,svg',
-         'image2' => 'nullable|mimes:jpeg,png,jpg,gif,svg',
         ]);
- 
+
+        if($request->has('image1'))
+        {
+            $file = $request->file('image1');
+
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $path = 'uploads/schedule/';
+            $file->move($path, $filename);
+        }
+
         ScheduleModel::create([
          'match_no' => $request->match_no,
          'stadium' => $request->stadium,
@@ -42,6 +51,7 @@ class ScheduleController extends Controller
          'team2' => $request->team2,
          'date' => $request->date,
          'time' => $request->time,
+         'image1' => $path.$filename,
         ]);
  
         return redirect('/admin/schedule')->with('message','create post successfuly');

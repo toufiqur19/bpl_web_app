@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('stadium');
             $table->string('division');
             $table->mediumText('image1')->nullable();
-            $table->mediumText('image2')->nullable();
             $table->string('team1');
             $table->string('team2');
             $table->string('date');

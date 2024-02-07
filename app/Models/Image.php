@@ -12,5 +12,6 @@ class Image extends Model
     protected $fillable = [
         'name',
         'image',
+        'schedule_id',
     ];
 }
