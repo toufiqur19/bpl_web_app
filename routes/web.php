@@ -18,8 +18,12 @@ Route::get('/', function () {
 });
 
 
-
+// home section start
 Route::get('/',[HomeController::class,'index'])->name('home');
+// Route::get('/news',[HomeController::class,'news'])->name('news');
+Route::get('/home/schedule',[ScheduleController::class,'homeSchedule'])->name('schedule');
+
+// home section end
 
 // admin section start
 Route::middleware('auth','admin:admin')->group(function () {

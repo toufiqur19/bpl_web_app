@@ -11,6 +11,10 @@ export default {
           'sobuj': '#191C24',
           'textColor': '#6C7293',
         },
+        fontFamily:
+        {
+          josefin:["Josefin Sans"],
+        },
       },
     },
     plugins: [],

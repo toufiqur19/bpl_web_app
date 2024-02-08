@@ -1,10 +1,6 @@
 <x-app-layout>
     <div class="px-10">
 
-        @foreach ($scheduls as $schedul)
-            <h1>{{$schedul->team2}}</h1>
-            <h1>{{$schedul->images->name}}</h1>
-            <img src="{{asset($schedul->images->image)}}" alt="">
-        @endforeach
+        <h1>home page</h1>
     </div>
 </x-app-layout>

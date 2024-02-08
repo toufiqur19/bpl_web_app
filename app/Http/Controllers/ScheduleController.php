@@ -11,7 +11,7 @@ class ScheduleController extends Controller
 {
     public function schedule()
     {
-        $schedules = ScheduleModel::all();
+        $schedules = ScheduleModel::paginate(8);
         return view('admin.schedule',compact('schedules'));
     }
 
@@ -94,5 +94,11 @@ class ScheduleController extends Controller
         $delete = ScheduleModel::where('id',$id)->first();
         $delete->delete();
         return back()->with('message','delete successfuly');
+     }
+
+      public function homeSchedule()
+     {
+      $schedules = ScheduleModel::paginate(10);
+        return view('home.schedule',compact('schedules'));
      }
 }

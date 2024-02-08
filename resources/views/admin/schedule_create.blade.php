@@ -12,7 +12,7 @@
            <div class="grid grid-cols-2 space-x-5">
                <div class="space-y-2">
                 <label for="">Match No</label>
-               <input class="outline-none rounded-md py-1.5 pl-2 bg-black w-full" type="number" name="match_no" value="{{old('match_no')}}">
+               <input class="outline-none rounded-md py-1.5 pl-2 bg-black w-full" type="text" name="match_no" value="{{old('match_no')}}">
                @if($errors->has('match_no'))
                <div class="text-red-600 text-sm">{{ $errors->first('match_no') }}</div>
                @endif

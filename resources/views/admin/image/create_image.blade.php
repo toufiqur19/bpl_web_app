@@ -15,7 +15,7 @@
                     <input class="mt-2 outline-none bg-black py-1.5 rounded-md pl-3" type="text" name="name" value="">
                 </div>
                 <div class="grid">
-                    <label>Name</label>
+                    <label>Schedule Id</label>
                     <input class="mt-2 outline-none bg-black py-1.5 rounded-md pl-3" type="number" name="schedule_id" value="">
                 </div>
                 <input type="file" name="image">

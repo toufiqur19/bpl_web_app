@@ -90,5 +90,7 @@
         </tbody>
     </table>
 </div>
-
+<div class="mt-5">
+    {{$schedules->links('vendor.pagination.tailwind_dark')}}
+</div>
 </div>

@@ -11,7 +11,7 @@ class ImageController extends Controller
 {
    public function image()
    {
-    $images = Image::all();
+    $images = Image::paginate(8);
     return view('admin.image.image', compact('images'));
    }
    public function create()

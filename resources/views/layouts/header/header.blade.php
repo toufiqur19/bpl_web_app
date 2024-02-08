@@ -1,23 +1,25 @@
-<header class="bg-white w-full">
+<header class="bg-gray-200 w-full">
     <nav class=" flex items-center justify-between px-10 h-14 lg:gap-6">
-        <a class="font-bold text-2xl whitespace-nowrap text-red-600" href="">BPL <span class="text-green-600">2024</span></a>
-        <div id="nav_item" class="text-white lg:text-black absolute top-full left-0 w-full text-center flex flex-col 
+        <a class="font-bold text-2xl whitespace-nowrap text-red-600" href="{{route('home')}}">BPL <span class="text-green-600">2024</span></a>
+        <div id="nav_item" class="text-white lg:text-black absolute lg:mt-0 mt-[25rem] hidden lg:block left-0 w-full text-center flex flex-col 
         max-lg:bg-gray-700 lg:text-[17px] text-xl lg:static lg:flex-row lg:justify-between">
-            <ul class="lg:flex-row flex flex-col lg:space-x-4 space-y-3 lg:space-y-0 font-semibold text-[1rem] mt-5 lg:mt-0">
-                <li class="lg:hover:text-gray-700 hover:text-gray-300 "><a href="">Home</a></li>
-                <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="">Points Table</a></li>
-                <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="">Schedule</a></li>
-                <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="">Most Runs</a></li>
-                <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="">Most Wickets</a></li>
-                <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="">News</a></li>
-            </ul>
-            <div id="header-right" class="">
-                @guest
-                <ul class="lg:flex-row flex flex-col lg:space-x-4 space-y-3 mt-3 lg:mt-0 lg:space-y-0 font-semibold text-[1rem] mb-5 lg:mb-0">
-                    <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="{{route('login')}}">Login</a></li>
-                    <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="{{route('register')}}">Register</a></li>
+            <div class="lg:flex lg:justify-between">
+                <ul class="lg:flex-row flex flex-col lg:space-x-4 space-y-3 lg:space-y-0 font-semibold text-[1rem] mt-5 lg:mt-0">
+                    <li class="lg:hover:text-gray-700 hover:text-gray-300 {{Request::is('/') ? 'text-green-600':''}}"><a href="{{route('home')}}">Home</a></li>
+                    <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="">Points Table</a></li>
+                    <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out {{Request::is('home/schedule') ? 'text-green-600':''}}"><a href="{{route('schedule')}}">Schedule</a></li>
+                    <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="">Most Runs</a></li>
+                    <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="">Most Wickets</a></li>
+                    <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="">News</a></li>
                 </ul>
-                @endguest
+                <div id="header-right" class="">
+                    @guest
+                    <ul class="lg:flex-row flex flex-col lg:space-x-4 space-y-3 mt-3 lg:mt-0 lg:space-y-0 font-semibold text-[1rem] mb-5 lg:mb-0">
+                        <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="{{route('login')}}">Login</a></li>
+                        <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="{{route('register')}}">Register</a></li>
+                    </ul>
+                    @endguest
+                </div>
             </div>
         
             @auth
@@ -70,6 +72,6 @@
     const nav_bar = document.getElementById("hamberger");
 
     nav_bar.addEventListener("click",()=>{
-        nav_item.classList.toggle('top-14');
+        nav_item.classList.toggle('hidden');
     });
 </script>

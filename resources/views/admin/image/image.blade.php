@@ -19,7 +19,7 @@
         <thead class="text-xs text-white uppercase bg-black">
             <tr>
                 <th scope="col" class="pl-3 py-3">
-                    Id No.
+                    Schedule Id
                 </th>
                 <th scope="col" class="pl-3 py-3">
                     Name
@@ -40,7 +40,7 @@
             @foreach ($images as $image)
             <tr class="odd:bg-sobuj even:bg-black">
                 <th scope="row" class="pl-4 py-4 font-medium text-white whitespace-nowrap">
-                    {{$image->id}}
+                    {{$image->schedule_id}}
                 </th>
                 <th scope="row" class="py-4 font-medium text-white whitespace-nowrap">
                     {{$image->name}}
@@ -59,5 +59,7 @@
         </tbody>
     </table>
 </div>
-
+<div class="mt-5">
+    {{$images->links('vendor.pagination.tailwind_dark')}}
+</div>
 </div>
