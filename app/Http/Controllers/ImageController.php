@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Image;
+use App\Models\TeamLogo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Validation\Rules\Exists;
@@ -11,7 +12,7 @@ class ImageController extends Controller
 {
    public function image()
    {
-    $images = Image::paginate(8);
+    $images = TeamLogo::paginate(8);
     return view('admin.image.image', compact('images'));
    }
    public function create()

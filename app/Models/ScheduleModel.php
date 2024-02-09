@@ -24,6 +24,6 @@ class ScheduleModel extends Model
     ];
     public function images(): HasOne
     {
-        return $this->hasOne(Image::class, 'schedule_id', 'id');
+        return $this->hasOne(TeamLogo::class, 'schedule_id', 'id');
     }
 }

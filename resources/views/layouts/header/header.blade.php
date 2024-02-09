@@ -6,7 +6,7 @@
             <div class="lg:flex lg:justify-between">
                 <ul class="lg:flex-row flex flex-col lg:space-x-4 space-y-3 lg:space-y-0 font-semibold text-[1rem] mt-5 lg:mt-0">
                     <li class="lg:hover:text-gray-700 hover:text-gray-300 {{Request::is('/') ? 'text-green-600':''}}"><a href="{{route('home')}}">Home</a></li>
-                    <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="">Points Table</a></li>
+                    <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out {{Request::is('home/point-table') ? 'text-green-600':''}}"><a href="{{route('point_table')}}">Points Table</a></li>
                     <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out {{Request::is('home/schedule') ? 'text-green-600':''}}"><a href="{{route('schedule')}}">Schedule</a></li>
                     <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="">Most Runs</a></li>
                     <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="">Most Wickets</a></li>

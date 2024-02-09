@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\home\PointTableController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MostRunsController;
@@ -20,6 +21,7 @@ Route::get('/', function () {
 
 // home section start
 Route::get('/',[HomeController::class,'index'])->name('home');
+Route::get('/home/point-table',[PointTableController::class,'pointTable'])->name('point_table');
 // Route::get('/news',[HomeController::class,'news'])->name('news');
 Route::get('/home/schedule',[ScheduleController::class,'homeSchedule'])->name('schedule');
 
