@@ -38,7 +38,7 @@ class ImageController extends Controller
             $file->move($path, $filename);
         }
 
-        Image::create([
+        TeamLogo::create([
          'name' => $request->name,
          'schedule_id' => $request->schedule_id,
          'image' => $path.$filename,
@@ -49,7 +49,7 @@ class ImageController extends Controller
 
    public function imgedit($id)
    {
-        $imgedit = Image::find($id);
+        $imgedit = TeamLogo::find($id);
         return view('admin.image.edit_image',compact('imgedit'));
    }
 
@@ -59,7 +59,7 @@ class ImageController extends Controller
             'name' => 'required',
             'image' => 'nullable|mimes:jpeg,png,jpg,gif,svg',
         ]);
-        $updateImg = Image::findOrFail($id);
+        $updateImg = TeamLogo::findOrFail($id);
         if($request->has('image'))
         {
             $file = $request->file('image');
@@ -85,7 +85,7 @@ class ImageController extends Controller
 
    public function destroy($id)
    {
-    $destroy = Image::where('id',$id)->first();
+    $destroy = TeamLogo::where('id',$id)->first();
 
     $destroy->delete();
     return back()->with('message','image delete successfuly');

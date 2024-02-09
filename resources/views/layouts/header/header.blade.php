@@ -4,7 +4,7 @@
         <div id="nav_item" class="text-white lg:text-black absolute lg:mt-0 mt-[25rem] hidden lg:block left-0 w-full text-center flex flex-col 
         max-lg:bg-gray-700 lg:text-[17px] text-xl lg:static lg:flex-row lg:justify-between">
             <div class="lg:flex lg:justify-between">
-                <ul class="lg:flex-row flex flex-col lg:space-x-4 space-y-3 lg:space-y-0 font-semibold text-[1rem] mt-5 lg:mt-0">
+                <ul class="lg:flex-row flex flex-col lg:space-x-4 space-y-3 lg:space-y-0 font-semibold text-[1rem] mt-5 lg:mt-1">
                     <li class="lg:hover:text-gray-700 hover:text-gray-300 {{Request::is('/') ? 'text-green-600':''}}"><a href="{{route('home')}}">Home</a></li>
                     <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out {{Request::is('home/point-table') ? 'text-green-600':''}}"><a href="{{route('point_table')}}">Points Table</a></li>
                     <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out {{Request::is('home/schedule') ? 'text-green-600':''}}"><a href="{{route('schedule')}}">Schedule</a></li>
@@ -20,14 +20,14 @@
                     </ul>
                     @endguest
                 </div>
-            </div>
+            
         
             @auth
                  <!-- Settings Dropdown -->
                  <div class="hidden sm:flex sm:items-center sm:ms-6">
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
-                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-[1rem] leading-4 font-medium rounded-md text-black bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-[1rem] leading-4 font-medium rounded-md text-white bg-green-600 hover:bg-red-600 hover:text-white focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ Auth::user()->name }}</div>
         
                                 <div class="ms-1">
@@ -57,6 +57,7 @@
                     </x-dropdown>
                 </div>
             @endauth
+        </div>
         </div>
         <div id="hamberger" class="text-xl lg:hidden">
             <i class="fa-solid fa-bars"></i>
