@@ -58,10 +58,10 @@
                                 {{$pointTable->los}}
                             </td>
                             <td class="">
-                                {{$pointTable->nrr}}
+                                {{$pointTable->point}}
                             </td>
                             <td class="">
-                                {{$pointTable->point}}
+                                {{$pointTable->nrr}}
                             </td>
                         </tr>
                         @endforeach
