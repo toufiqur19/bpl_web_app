@@ -23,10 +23,10 @@ return new class extends Migration
             $table->string('sr');
             $table->string('avg');
             $table->string('hight');
-            $table->string('50s');
-            $table->string('100s');
-            $table->string('4s');
-            $table->string('6s');
+            $table->string('fifty');
+            $table->string('hundred');
+            $table->string('four');
+            $table->string('six');
             $table->timestamps();
         });
     }

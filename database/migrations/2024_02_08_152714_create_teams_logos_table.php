@@ -15,11 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
-            $table->foreignId('schedule_id')
-                  ->constrained()
-                  ->references('id')
-                  ->on('schedule')
-                  ->onDelete('cascade');
+            $table->unsignedBigInteger('schedule_id');
             $table->timestamps();
         });
     }

@@ -20,9 +20,9 @@ class MostRun extends Model
         'sr',
         'avg',
         'hight',
-        '50s',
-        '100s',
-        '4s',
-        '6s',
+        'fifty',
+        'hundred',
+        'four',
+        'six',
     ];
 }

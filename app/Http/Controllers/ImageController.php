@@ -59,27 +59,17 @@ class ImageController extends Controller
             'name' => 'required',
             'image' => 'nullable|mimes:jpeg,png,jpg,gif,svg',
         ]);
-        $updateImg = TeamLogo::findOrFail($id);
-        if($request->has('image'))
-        {
-            $file = $request->file('image');
+        $updateImg = TeamLogo::where('id',$id)->first();
+       
+      if(isset($request->image))
+      {
+         $teamImage = time().'.'.$request->image->extension();
+         $request->image->move(public_path('uploads/schedule/'),$teamImage);
+         $updateImg-> image = $teamImage;
+      }
 
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $path = 'uploads/schedule/';
-            $file->move($path, $filename);
-
-            if(File::exists(($updateImg->image)))
-            {
-                File::delete(($updateImg->image));
-            }
-        }
-
-        $updateImg->update([
-        'name' => $request->name,
-        'image' => $path.$filename,
-        ]);
-
+        $updateImg-> name = $request->name;
+        $updateImg->save();
         return redirect('admin/image')->with('message','update successfuly');
    }
 

@@ -79,10 +79,10 @@
                 </td>
                 
                 <td class="">
-                    <a href="{{url('edit/'.$pointTable->id)}}" class="font-medium text-blue-600 hover:underline">Edit</a>
+                    <a href="{{url('pointedit/'.$pointTable->id)}}" class="font-medium text-blue-600 hover:underline">Edit</a>
                 </td>
                 <td class="">
-                    <a href="{{url('delete/'.$pointTable->id)}}" class="font-medium text-red-600 hover:underline">Delete</a>
+                    <a href="{{url('point/delete/'.$pointTable->id)}}" class="font-medium text-red-600 hover:underline">Delete</a>
                 </td>
             </tr>
             @endforeach
