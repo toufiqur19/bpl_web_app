@@ -9,8 +9,8 @@
                     <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out {{Request::is('home/point-table') ? 'text-green-600':''}}"><a href="{{route('point_table')}}">Points Table</a></li>
                     <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out {{Request::is('home/schedule') ? 'text-green-600':''}}"><a href="{{route('schedule')}}">Schedule</a></li>
                     <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out {{Request::is('home/most-runs') ? 'text-green-600':''}}"><a href="{{route('most-runs')}}">Most Runs</a></li>
-                    <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="">Most Wickets</a></li>
-                    <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out"><a href="">News</a></li>
+                    <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out {{Request::is('home/most-wicket') ? 'text-green-600':''}}"><a href="{{route('most-wicket')}}">Most Wickets</a></li>
+                    <li class="lg:hover:text-gray-700 hover:text-gray-300 hover:ml-4 duration-300 ease-in-out {{Request::is('home/news') ? 'text-green-600':''}}"><a href="{{route('news')}}">News</a></li>
                 </ul>
                 <div id="header-right" class="">
                     @guest

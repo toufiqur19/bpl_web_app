@@ -22,9 +22,10 @@ Route::get('/', function () {
 // home section start
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/home/point-table',[PointTableController::class,'pointTable'])->name('point_table');
-// Route::get('/news',[HomeController::class,'news'])->name('news');
+Route::get('/home/news',[HomeController::class,'news'])->name('news');
 Route::get('/home/schedule',[ScheduleController::class,'homeSchedule'])->name('schedule');
 Route::get('/home/most-runs',[MostRunsController::class,'mostPlayer'])->name('most-runs');
+Route::get('/home/most-wicket',[MostWicketController::class,'homeMostWicket'])->name('most-wicket');
 
 // home section end
 
@@ -61,7 +62,15 @@ Route::put('update-player/{id}',[MostRunsController::class,'update']);
 Route::get('most/run/delete/{id}',[MostRunsController::class,'destroy']);
 // must runs end
 
+// must wicket start
 Route::get('/admin/most/wicket',[MostWicketController::class,'mostWicket'])->name('most.wicket');
+Route::get('/admin/most/wicket/create',[MostWicketController::class,'create'])->name('admin.wicket.create');
+Route::post('/admin/most/wicket/store',[MostWicketController::class,'store'])->name('most.wicket.store');
+Route::get('most/wicket/edit/{id}',[MostWicketController::class,'edit']);
+Route::put('update/{id}',[MostWicketController::class,'update']);
+Route::get('most/wicket/delete/{id}',[MostWicketController::class,'delete']);
+// must wicket end
+
 Route::get('/admin/news',[NewsController::class,'news'])->name('admin.news');
 
 // image
